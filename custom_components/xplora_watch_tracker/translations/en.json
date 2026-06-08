@@ -33,9 +33,12 @@
     "step": {
       "init": {
         "title": "Xplora Watch Tracker Options",
-        "description": "Adjust poll interval ({min_interval}–{max_interval} seconds) and watch display names.",
+        "description": "Adjust poll interval ({min_interval}–{max_interval} seconds), watch display names, and Xplora API settings.",
         "data": {
-          "scan_interval": "Poll interval (seconds)"
+          "scan_interval": "Poll interval (seconds)",
+          "endpoint": "API endpoint",
+          "api_key": "API key",
+          "api_secret": "API secret"
         }
       }
     }

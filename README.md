@@ -12,6 +12,7 @@ A Home Assistant custom integration for tracking Xplora kids smartwatches. Provi
 - 👤 **Person integration** — device trackers can be assigned to HA People
 - 🔄 **Configurable poll interval** — 60 to 600 seconds (default 180 seconds)
 - 🏷️ **Custom watch names** — set friendly names during setup or via the options flow
+- 🔧 **Configurable API settings** — override the Xplora API endpoint, key, and secret through the integration options if upstream values change
 - 🔁 **Auto-discovery** — watches are discovered from your account at login; adding or removing a watch takes effect on next HA restart
 
 ## Requirements
@@ -80,6 +81,7 @@ The device tracker also exposes these attributes:
 After setup, click **Configure** on the integration card to adjust:
 - **Poll interval** — how often to request updated location and battery data (60–600 seconds)
 - **Watch names** — rename any watch without removing and re-adding the integration
+- **API endpoint / API key / API secret** — override the connection details used to reach Xplora's backend
 
 Changes take effect immediately via an automatic integration reload.
 

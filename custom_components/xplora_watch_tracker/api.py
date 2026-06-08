@@ -74,18 +74,24 @@ class XploraApiClient:
         password: str,
         timezone: str = "America/New_York",
         language: str = "en-US",
+        endpoint: str = ENDPOINT,
+        api_key: str = API_KEY,
+        api_secret: str = API_SECRET,
         session: aiohttp.ClientSession | None = None,
     ) -> None:
-        self._email    = email
-        self._password = password
-        self._timezone = timezone
-        self._language = language
-        self._session  = session
+        self._email      = email
+        self._password   = password
+        self._timezone   = timezone
+        self._language   = language
+        self._endpoint   = endpoint
+        self._api_key    = api_key
+        self._api_secret = api_secret
+        self._session    = session
         self._own_session = session is None
 
         # Set after login
         self._session_token: str | None = None
-        self._bearer_secret: str = API_SECRET
+        self._bearer_secret: str = api_secret
         self._user_id: str | None = None
         self._watches: list[dict[str, str]] = []
 
@@ -97,7 +103,7 @@ class XploraApiClient:
         """Headers for the initial unauthenticated login request."""
         return {
             "content-type": "application/json",
-            "h-backdoor-authorization": f"Open {API_KEY}:{API_SECRET}",
+            "h-backdoor-authorization": f"Open {self._api_key}:{self._api_secret}",
             "h-tid": self._ts(),
             "accept": "*/*",
             "origin": "https://goplay.myxplora.com",
@@ -136,7 +142,7 @@ class XploraApiClient:
 
         session = await self._get_session()
         async with session.post(
-            ENDPOINT, json=payload, headers=headers, timeout=aiohttp.ClientTimeout(total=15)
+            self._endpoint, json=payload, headers=headers, timeout=aiohttp.ClientTimeout(total=15)
         ) as resp:
             resp.raise_for_status()
             return await resp.json()
@@ -171,12 +177,12 @@ class XploraApiClient:
 
         self._session_token = signin["token"]
 
-        # Use w360 secret if provided, otherwise fall back to API_SECRET
+        # Use w360 secret if provided, otherwise fall back to the configured API secret
         w360 = signin.get("w360") or {}
         if w360.get("secret"):
             self._bearer_secret = w360["secret"]
         else:
-            self._bearer_secret = API_SECRET
+            self._bearer_secret = self._api_secret
 
         user = signin.get("user", {})
         self._user_id = user.get("id")

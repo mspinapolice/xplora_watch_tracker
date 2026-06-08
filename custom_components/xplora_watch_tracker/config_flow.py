@@ -14,11 +14,17 @@ from homeassistant.exceptions import HomeAssistantError
 from .api import XploraApiClient, XploraAuthError
 from .const import (
     CONF_EMAIL,
+    CONF_ENDPOINT,
+    CONF_API_KEY,
+    CONF_API_SECRET,
     CONF_LANGUAGE,
     CONF_PASSWORD,
     CONF_SCAN_INTERVAL,
     CONF_TIMEZONE,
     CONF_WATCHES,
+    DEFAULT_API_KEY,
+    DEFAULT_API_SECRET,
+    DEFAULT_ENDPOINT,
     DEFAULT_LANGUAGE,
     DEFAULT_SCAN_INTERVAL,
     DEFAULT_TIMEZONE,
@@ -183,13 +189,34 @@ class XploraOptionsFlow(config_entries.OptionsFlow):
                 data={**self._entry.data, CONF_WATCHES: updated_watches},
             )
 
-            # Save poll interval to options — triggers coordinator reload
+            endpoint = user_input.get(
+                CONF_ENDPOINT,
+                self._entry.options.get(CONF_ENDPOINT, DEFAULT_ENDPOINT),
+            ).strip()
+            api_key = user_input.get(
+                CONF_API_KEY,
+                self._entry.options.get(CONF_API_KEY, DEFAULT_API_KEY),
+            ).strip()
+            api_secret = user_input.get(
+                CONF_API_SECRET,
+                self._entry.options.get(CONF_API_SECRET, DEFAULT_API_SECRET),
+            ).strip()
+
+            # Save poll interval and API connection options — triggers reload
             return self.async_create_entry(
                 title="",
-                data={CONF_SCAN_INTERVAL: user_input[CONF_SCAN_INTERVAL]},
+                data={
+                    CONF_SCAN_INTERVAL: user_input[CONF_SCAN_INTERVAL],
+                    CONF_ENDPOINT: endpoint,
+                    CONF_API_KEY: api_key,
+                    CONF_API_SECRET: api_secret,
+                },
             )
 
         current_interval = self._entry.options.get(CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL)
+        current_endpoint = self._entry.options.get(CONF_ENDPOINT, DEFAULT_ENDPOINT)
+        current_api_key = self._entry.options.get(CONF_API_KEY, DEFAULT_API_KEY)
+        current_api_secret = self._entry.options.get(CONF_API_SECRET, DEFAULT_API_SECRET)
         watches = self._entry.data.get(CONF_WATCHES, [])
 
         fields: dict[Any, Any] = {
@@ -197,6 +224,9 @@ class XploraOptionsFlow(config_entries.OptionsFlow):
                 vol.Coerce(int),
                 vol.Clamp(min=MIN_SCAN_INTERVAL, max=MAX_SCAN_INTERVAL),
             ),
+            vol.Optional(CONF_ENDPOINT, default=current_endpoint): str,
+            vol.Optional(CONF_API_KEY, default=current_api_key): str,
+            vol.Optional(CONF_API_SECRET, default=current_api_secret): str,
         }
         for watch in watches:
             wuid = watch["wuid"]

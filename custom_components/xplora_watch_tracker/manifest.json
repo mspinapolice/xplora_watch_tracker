@@ -1,7 +1,7 @@
 {
   "domain": "xplora_watch_tracker",
   "name": "Xplora Watch Tracker",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "documentation": "https://github.com/mspinapolice/xplora_watch_tracker",
   "issue_tracker": "https://github.com/mspinapolice/xplora_watch_tracker/issues",
   "requirements": [],

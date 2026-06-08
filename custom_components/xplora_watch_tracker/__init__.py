@@ -11,11 +11,17 @@ from homeassistant.helpers.typing import ConfigType
 from .api import XploraApiClient, XploraAuthError
 from .const import (
     CONF_EMAIL,
+    CONF_ENDPOINT,
+    CONF_API_KEY,
+    CONF_API_SECRET,
     CONF_LANGUAGE,
     CONF_PASSWORD,
     CONF_SCAN_INTERVAL,
     CONF_TIMEZONE,
     CONF_WATCHES,
+    DEFAULT_API_KEY,
+    DEFAULT_API_SECRET,
+    DEFAULT_ENDPOINT,
     DEFAULT_LANGUAGE,
     DEFAULT_SCAN_INTERVAL,
     DEFAULT_TIMEZONE,
@@ -42,6 +48,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         password = entry.data[CONF_PASSWORD],
         timezone = entry.data.get(CONF_TIMEZONE, DEFAULT_TIMEZONE),
         language = entry.data.get(CONF_LANGUAGE, DEFAULT_LANGUAGE),
+        endpoint = entry.options.get(CONF_ENDPOINT, DEFAULT_ENDPOINT),
+        api_key = entry.options.get(CONF_API_KEY, DEFAULT_API_KEY),
+        api_secret = entry.options.get(CONF_API_SECRET, DEFAULT_API_SECRET),
     )
 
     try:
