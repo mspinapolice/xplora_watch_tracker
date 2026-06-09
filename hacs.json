@@ -1,9 +1,8 @@
 {
-  "name": "Xplora Watch Tracker",
-  "homeassistant": "2024.1.0",
-  "render_readme": true,
-  "homeassistant": "2026.6.0",
+  "filename": "xplora_watch_tracker.zip",
   "hacs": "2.0.5",
-  "zip_release": true,
-  "filename": "xplora_watch_tracker.zip"
+  "homeassistant": "2024.1.0",
+  "name": "Xplora Watch Tracker",
+  "render_readme": true,
+  "zip_release": true
 }
