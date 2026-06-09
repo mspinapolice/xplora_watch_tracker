@@ -8,6 +8,8 @@ A Home Assistant custom integration for tracking Xplora kids smartwatches. Provi
 [![Python](https://img.shields.io/badge/python-3.12%2B-blue)](https://www.python.org/)\
 [![hassfest](https://img.shields.io/github/actions/workflow/status/mspinapolice/xplora_watch_tracker/hassfest.yml?label=hassfest)](https://github.com/mspinapolice/xplora_watch_tracker/actions)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz/)
+![CodeQL](https://img.shields.io/github/actions/workflow/status/mspinapolice/xplora_watch_tracker/codeql.yml?label=CodeQL)
+![Ruff](https://img.shields.io/github/actions/workflow/status/mspinapolice/xplora_watch_tracker/ruff.yml?label=Ruff)\
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
