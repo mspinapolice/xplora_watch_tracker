@@ -1,13 +1,13 @@
 {
   "domain": "xplora_watch_tracker",
   "name": "Xplora Watch Tracker",
-  "version": "1.2.0",
+  "codeowners": ["@mspinapolice"],
+  "config_flow": true,
+  "dependencies": [],
   "documentation": "https://github.com/mspinapolice/xplora_watch_tracker",
+  "integration_type": "device",
+  "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/mspinapolice/xplora_watch_tracker/issues",
   "requirements": [],
-  "dependencies": [],
-  "integration_type": "device",
-  "codeowners": ["@mspinapolice"],
-  "iot_class": "cloud_polling",
-  "config_flow": true
+  "version": "1.2.0"
 }
