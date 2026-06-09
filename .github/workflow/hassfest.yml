@@ -1,0 +1,7 @@
+name: Hassfest
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: home-assistant/actions/hassfest@main
