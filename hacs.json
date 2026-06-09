@@ -1,8 +1,8 @@
 {
   "name": "Xplora Watch Tracker",
-  "issue_tracker": "https://github.com/mspinapolice/xplora_watch_tracker/issues",
   "homeassistant": "2024.1.0",
   "render_readme": true,
+  "homeassistant": "2026.6.0",
   "hacs": "2.0.5",
   "zip_release": true,
   "filename": "xplora_watch_tracker.zip"
