@@ -4,7 +4,9 @@
   "documentation": "https://github.com/mspinapolice/xplora_watch_tracker",
   "issue_tracker": "https://github.com/mspinapolice/xplora_watch_tracker/issues",
   "homeassistant": "2024.1.0",
-  "codeowners": ["@mspinapolice"],
   "render_readme": true,
+  "hacs": "2.0.5",
+  "zip_release": "true",
+  "filename": "xplora_watch_tracker.zip",
   "icon": "https://raw.githubusercontent.com/mspinapolice/xplora_watch_tracker/main/custom_components/xplora_watch_tracker/brand/icon.png"
 }
