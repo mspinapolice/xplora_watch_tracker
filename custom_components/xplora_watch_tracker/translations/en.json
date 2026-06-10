@@ -23,7 +23,6 @@
       "cannot_connect": "Unable to connect to the Xplora API. Check your internet connection.",
       "invalid_auth":   "Invalid email or password.",
       "no_watches":     "No watches found on this account.",
-      "endpoint_must_use_https": "Endpoint must use HTTPS (must start with https://)",
       "unknown":        "Unexpected error. Check the HA logs for details."
     },
     "abort": {
@@ -42,6 +41,9 @@
           "api_secret": "API secret"
         }
       }
+    },
+    "error": {
+      "endpoint_must_use_https": "Endpoint must use HTTPS (must start with https://)"
     }
   }
 }

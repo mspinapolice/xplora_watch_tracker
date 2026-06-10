@@ -130,6 +130,12 @@ Changes take effect immediately via an automatic integration reload.
 - **API dependency** — this integration uses Xplora's private API. If Xplora changes their API, the integration may stop working until updated
 - **Email + password only** — attempts using guardian's phone number were usuccesful authenticating via the API
 
+## Security Note
+
+- This integration communicates with the Xplora cloud API over `HTTPS`. 
+- At this time, the Xplora API requires passwords to be hashed with `MD5` before transmission. This is a requirement imposed by Xplora's servers and is outside the control of this integration. 
+- The account password is never stored in plain text. Home Assistant's encrypted config entry storage is used to protect credentials at rest.
+
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
