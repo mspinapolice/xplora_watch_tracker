@@ -1,4 +1,5 @@
 """Xplora Watch Tracker integration."""
+
 from __future__ import annotations
 
 import logging
@@ -14,17 +15,13 @@ from .const import (
     CONF_ENDPOINT,
     CONF_API_KEY,
     CONF_API_SECRET,
-    CONF_LANGUAGE,
     CONF_PASSWORD,
     CONF_SCAN_INTERVAL,
-    CONF_TIMEZONE,
     CONF_WATCHES,
     DEFAULT_API_KEY,
     DEFAULT_API_SECRET,
     DEFAULT_ENDPOINT,
-    DEFAULT_LANGUAGE,
     DEFAULT_SCAN_INTERVAL,
-    DEFAULT_TIMEZONE,
     DOMAIN,
     PLATFORMS,
 )
@@ -34,18 +31,19 @@ _LOGGER = logging.getLogger(__name__)
 
 CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Xplora Watch Tracker from a config entry."""
     hass.data.setdefault(DOMAIN, {})
 
     client = XploraApiClient(
-        email    = entry.data[CONF_EMAIL],
-        password = entry.data[CONF_PASSWORD],
-        timezone = entry.data.get(CONF_TIMEZONE, DEFAULT_TIMEZONE),
-        language = entry.data.get(CONF_LANGUAGE, DEFAULT_LANGUAGE),
-        endpoint = entry.options.get(CONF_ENDPOINT, DEFAULT_ENDPOINT),
-        api_key = entry.options.get(CONF_API_KEY, DEFAULT_API_KEY),
-        api_secret = entry.options.get(CONF_API_SECRET, DEFAULT_API_SECRET),
+        email=entry.data[CONF_EMAIL],
+        password=entry.data[CONF_PASSWORD],
+        timezone=hass.config.time_zone,
+        language=hass.config.language,
+        endpoint=entry.options.get(CONF_ENDPOINT, DEFAULT_ENDPOINT),
+        api_key=entry.options.get(CONF_API_KEY, DEFAULT_API_KEY),
+        api_secret=entry.options.get(CONF_API_SECRET, DEFAULT_API_SECRET),
     )
 
     try:
@@ -54,6 +52,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         await client.close()
         raise ConfigEntryAuthFailed(f"Authentication failed: {err}") from err
     except Exception as err:
+        _LOGGER.exception("Unable to initialize Xplora integration")
         await client.close()
         raise ConfigEntryNotReady(f"Cannot connect to Xplora API: {err}") from err
 

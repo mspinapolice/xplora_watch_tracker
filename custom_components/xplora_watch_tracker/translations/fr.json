@@ -5,15 +5,13 @@
         "title": "Xplora Watch Tracker",
         "description": "Entrez vos identifiants de compte Xplora (identiques à goplay.xplora.com).",
         "data": {
-          "email":    "Adresse e-mail",
-          "password": "Mot de passe",
-          "timezone": "Fuseau horaire (ex. America/New_York)",
-          "language": "Langue (ex. fr-FR)"
+          "email": "Adresse e-mail",
+          "password": "Mot de passe"
         }
       },
       "watches": {
         "title": "Nommer vos montres",
-        "description": "{watch_count} montre(s) trouvée(s) : {watches}.\n\nDéfinissez un nom convivial pour chaque montre et choisissez la fréquence d'interrogation des mises à jour ({min_interval}–{max_interval} secondes, par défaut {default_interval}s).",
+        "description": "{watch_count} montre(s) trouvée(s) : {watches}.\n\nDéfinissez un nom convivial pour chaque montre et choisissez la fréquence d'interrogation des mises à jour ({min_interval}-{max_interval} secondes, par défaut {default_interval}s).",
         "data": {
           "scan_interval": "Intervalle d'interrogation (secondes)"
         }
@@ -21,9 +19,9 @@
     },
     "error": {
       "cannot_connect": "Impossible de se connecter à l'API Xplora. Vérifiez votre connexion Internet.",
-      "invalid_auth":   "Adresse e-mail ou mot de passe invalide.",
-      "no_watches":     "Aucune montre trouvée sur ce compte.",
-      "unknown":        "Erreur inattendue. Consultez les journaux HA pour plus de détails."
+      "invalid_auth": "Adresse e-mail ou mot de passe invalide.",
+      "no_watches": "Aucune montre trouvée sur ce compte.",
+      "unknown": "Erreur inattendue. Consultez les journaux HA pour plus de détails."
     },
     "abort": {
       "already_configured": "Ce compte Xplora est déjà configuré."
@@ -33,12 +31,9 @@
     "step": {
       "init": {
         "title": "Options Xplora Watch Tracker",
-        "description": "Ajustez l'intervalle d'interrogation ({min_interval}–{max_interval} secondes), les noms d'affichage des montres et les paramètres de l'API Xplora.",
+        "description": "Ajustez l'intervalle d'interrogation ({min_interval}-{max_interval} secondes), les noms d'affichage des montres et les paramètres de l'API Xplora.",
         "data": {
-          "scan_interval": "Intervalle d'interrogation (secondes)",
-          "endpoint": "Point de terminaison API",
-          "api_key": "Clé API",
-          "api_secret": "Secret API"
+          "scan_interval": "Intervalle d'interrogation (secondes)"
         }
       }
     },

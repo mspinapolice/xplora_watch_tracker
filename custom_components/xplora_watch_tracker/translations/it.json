@@ -5,15 +5,13 @@
         "title": "Xplora Watch Tracker",
         "description": "Inserisci le credenziali del tuo account Xplora (le stesse di goplay.xplora.com).",
         "data": {
-          "email":    "Indirizzo e-mail",
-          "password": "Password",
-          "timezone": "Fuso orario (es. America/New_York)",
-          "language": "Lingua (es. it-IT)"
+          "email": "Indirizzo e-mail",
+          "password": "Password"
         }
       },
       "watches": {
         "title": "Assegna un nome agli orologi",
-        "description": "Trovato/i {watch_count} orologio/orologi: {watches}.\n\nImposta un nome descrittivo per ogni orologio e scegli la frequenza di aggiornamento ({min_interval}–{max_interval} secondi, predefinito {default_interval}s).",
+        "description": "Trovato/i {watch_count} orologio/orologi: {watches}.\n\nImposta un nome descrittivo per ogni orologio e scegli la frequenza di aggiornamento ({min_interval}-{max_interval} secondi, predefinito {default_interval}s).",
         "data": {
           "scan_interval": "Intervallo di polling (secondi)"
         }
@@ -21,9 +19,9 @@
     },
     "error": {
       "cannot_connect": "Impossibile connettersi all'API Xplora. Verifica la tua connessione Internet.",
-      "invalid_auth":   "E-mail o password non validi.",
-      "no_watches":     "Nessun orologio trovato su questo account.",
-      "unknown":        "Errore imprevisto. Controlla i log di HA per i dettagli."
+      "invalid_auth": "E-mail o password non validi.",
+      "no_watches": "Nessun orologio trovato su questo account.",
+      "unknown": "Errore imprevisto. Controlla i log di HA per i dettagli."
     },
     "abort": {
       "already_configured": "Questo account Xplora è già configurato."
@@ -33,12 +31,9 @@
     "step": {
       "init": {
         "title": "Opzioni Xplora Watch Tracker",
-        "description": "Regola l'intervallo di polling ({min_interval}–{max_interval} secondi), i nomi visualizzati degli orologi e le impostazioni dell'API Xplora.",
+        "description": "Regola l'intervallo di polling ({min_interval}-{max_interval} secondi), i nomi visualizzati degli orologi e le impostazioni dell'API Xplora.",
         "data": {
-          "scan_interval": "Intervallo di polling (secondi)",
-          "endpoint": "Endpoint API",
-          "api_key": "Chiave API",
-          "api_secret": "Segreto API"
+          "scan_interval": "Intervallo di polling (secondi)"
         }
       }
     },

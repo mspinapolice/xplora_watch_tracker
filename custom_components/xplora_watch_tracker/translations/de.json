@@ -5,15 +5,13 @@
         "title": "Xplora Watch Tracker",
         "description": "Geben Sie Ihre Xplora-Kontodaten ein (wie auf goplay.xplora.com).",
         "data": {
-          "email":    "E-Mail-Adresse",
-          "password": "Passwort",
-          "timezone": "Zeitzone (z. B. America/New_York)",
-          "language": "Sprache (z. B. de-DE)"
+          "email": "E-Mail-Adresse",
+          "password": "Passwort"
         }
       },
       "watches": {
         "title": "Uhren benennen",
-        "description": "{watch_count} Uhr(en) gefunden: {watches}.\n\nLegen Sie einen benutzerfreundlichen Namen für jede Uhr fest und wählen Sie, wie oft nach Updates gesucht werden soll ({min_interval}–{max_interval} Sekunden, Standard {default_interval}s).",
+        "description": "{watch_count} Uhr(en) gefunden: {watches}.\n\nLegen Sie einen benutzerfreundlichen Namen für jede Uhr fest und wählen Sie, wie oft nach Updates gesucht werden soll ({min_interval}-{max_interval} Sekunden, Standard {default_interval}s).",
         "data": {
           "scan_interval": "Abfrageintervall (Sekunden)"
         }
@@ -21,9 +19,9 @@
     },
     "error": {
       "cannot_connect": "Verbindung zur Xplora-API nicht möglich. Überprüfen Sie Ihre Internetverbindung.",
-      "invalid_auth":   "Ungültige E-Mail-Adresse oder falsches Passwort.",
-      "no_watches":     "Keine Uhren auf diesem Konto gefunden.",
-      "unknown":        "Unerwarteter Fehler. Weitere Informationen finden Sie in den HA-Protokollen."
+      "invalid_auth": "Ungültige E-Mail-Adresse oder falsches Passwort.",
+      "no_watches": "Keine Uhren auf diesem Konto gefunden.",
+      "unknown": "Unerwarteter Fehler. Weitere Informationen finden Sie in den HA-Protokollen."
     },
     "abort": {
       "already_configured": "Dieses Xplora-Konto ist bereits konfiguriert."
@@ -33,12 +31,9 @@
     "step": {
       "init": {
         "title": "Xplora Watch Tracker Optionen",
-        "description": "Passen Sie das Abfrageintervall ({min_interval}–{max_interval} Sekunden), die Anzeigenamen der Uhren und die Xplora-API-Einstellungen an.",
+        "description": "Passen Sie das Abfrageintervall ({min_interval}-{max_interval} Sekunden), die Anzeigenamen der Uhren und die Xplora-API-Einstellungen an.",
         "data": {
-          "scan_interval": "Abfrageintervall (Sekunden)",
-          "endpoint": "API-Endpunkt",
-          "api_key": "API-Schlüssel",
-          "api_secret": "API-Geheimnis"
+          "scan_interval": "Abfrageintervall (Sekunden)"
         }
       }
     },

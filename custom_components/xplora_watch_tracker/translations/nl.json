@@ -5,15 +5,13 @@
         "title": "Xplora Watch Tracker",
         "description": "Voer uw Xplora-accountgegevens in (dezelfde als op goplay.xplora.com).",
         "data": {
-          "email":    "E-mailadres",
-          "password": "Wachtwoord",
-          "timezone": "Tijdzone (bijv. America/New_York)",
-          "language": "Taal (bijv. nl-NL)"
+          "email": "E-mailadres",
+          "password": "Wachtwoord"
         }
       },
       "watches": {
         "title": "Geef uw horloges een naam",
-        "description": "{watch_count} horloge(s) gevonden: {watches}.\n\nStel een beschrijvende naam in voor elk horloge en kies hoe vaak er op updates wordt gecontroleerd ({min_interval}–{max_interval} seconden, standaard {default_interval}s).",
+        "description": "{watch_count} horloge(s) gevonden: {watches}.\n\nStel een beschrijvende naam in voor elk horloge en kies hoe vaak er op updates wordt gecontroleerd ({min_interval}-{max_interval} seconden, standaard {default_interval}s).",
         "data": {
           "scan_interval": "Polling-interval (seconden)"
         }
@@ -21,9 +19,9 @@
     },
     "error": {
       "cannot_connect": "Kan geen verbinding maken met de Xplora API. Controleer uw internetverbinding.",
-      "invalid_auth":   "Ongeldig e-mailadres of wachtwoord.",
-      "no_watches":     "Geen horloges gevonden op dit account.",
-      "unknown":        "Onverwachte fout. Raadpleeg de HA-logboeken voor details."
+      "invalid_auth": "Ongeldig e-mailadres of wachtwoord.",
+      "no_watches": "Geen horloges gevonden op dit account.",
+      "unknown": "Onverwachte fout. Raadpleeg de HA-logboeken voor details."
     },
     "abort": {
       "already_configured": "Dit Xplora-account is al geconfigureerd."
@@ -33,12 +31,9 @@
     "step": {
       "init": {
         "title": "Xplora Watch Tracker Opties",
-        "description": "Pas het polling-interval aan ({min_interval}–{max_interval} seconden), de weergavenamen van de horloges en de Xplora API-instellingen.",
+        "description": "Pas het polling-interval aan ({min_interval}-{max_interval} seconden), de weergavenamen van de horloges en de Xplora API-instellingen.",
         "data": {
-          "scan_interval": "Polling-interval (seconden)",
-          "endpoint": "API-eindpunt",
-          "api_key": "API-sleutel",
-          "api_secret": "API-geheim"
+          "scan_interval": "Polling-interval (seconden)"
         }
       }
     },

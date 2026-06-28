@@ -5,15 +5,13 @@
         "title": "Xplora Watch Tracker",
         "description": "Introduce tus credenciales de cuenta Xplora (las mismas que en goplay.xplora.com).",
         "data": {
-          "email":    "Correo electrónico",
-          "password": "Contraseña",
-          "timezone": "Zona horaria (p. ej. America/New_York)",
-          "language": "Idioma (p. ej. es-ES)"
+          "email": "Correo electrónico",
+          "password": "Contraseña"
         }
       },
       "watches": {
         "title": "Nombra tus relojes",
-        "description": "Se encontró/encontraron {watch_count} reloj/relojes: {watches}.\n\nEstablece un nombre descriptivo para cada reloj y elige con qué frecuencia buscar actualizaciones ({min_interval}–{max_interval} segundos, predeterminado {default_interval}s).",
+        "description": "Se encontró/encontraron {watch_count} reloj/relojes: {watches}.\n\nEstablece un nombre descriptivo para cada reloj y elige con qué frecuencia buscar actualizaciones ({min_interval}-{max_interval} segundos, predeterminado {default_interval}s).",
         "data": {
           "scan_interval": "Intervalo de consulta (segundos)"
         }
@@ -21,9 +19,9 @@
     },
     "error": {
       "cannot_connect": "No se puede conectar a la API de Xplora. Comprueba tu conexión a Internet.",
-      "invalid_auth":   "Correo electrónico o contraseña no válidos.",
-      "no_watches":     "No se encontraron relojes en esta cuenta.",
-      "unknown":        "Error inesperado. Consulta los registros de HA para más detalles."
+      "invalid_auth": "Correo electrónico o contraseña no válidos.",
+      "no_watches": "No se encontraron relojes en esta cuenta.",
+      "unknown": "Error inesperado. Consulta los registros de HA para más detalles."
     },
     "abort": {
       "already_configured": "Esta cuenta de Xplora ya está configurada."
@@ -33,12 +31,9 @@
     "step": {
       "init": {
         "title": "Opciones de Xplora Watch Tracker",
-        "description": "Ajusta el intervalo de consulta ({min_interval}–{max_interval} segundos), los nombres de visualización de los relojes y la configuración de la API de Xplora.",
+        "description": "Ajusta el intervalo de consulta ({min_interval}-{max_interval} segundos), los nombres de visualización de los relojes y la configuración de la API de Xplora.",
         "data": {
-          "scan_interval": "Intervalo de consulta (segundos)",
-          "endpoint": "Punto de conexión de la API",
-          "api_key": "Clave de API",
-          "api_secret": "Secreto de API"
+          "scan_interval": "Intervalo de consulta (segundos)"
         }
       }
     },

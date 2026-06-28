@@ -1,10 +1,12 @@
 """Device tracker platform for Xplora Watch Tracker."""
+
 from __future__ import annotations
 
 import logging
 from typing import Any
 
-from homeassistant.components.device_tracker import SourceType, TrackerEntity
+from homeassistant.components.device_tracker.config_entry import TrackerEntity
+from homeassistant.components.device_tracker.const import SourceType
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceInfo
@@ -26,8 +28,7 @@ async def async_setup_entry(
     coordinator: XploraCoordinator = hass.data[DOMAIN][entry.entry_id]
 
     async_add_entities(
-        XploraDeviceTracker(coordinator, watch)
-        for watch in coordinator.watches
+        XploraDeviceTracker(coordinator, watch) for watch in coordinator.watches
     )
 
 
@@ -35,7 +36,7 @@ class XploraDeviceTracker(CoordinatorEntity[XploraCoordinator], TrackerEntity):
     """Tracks a single Xplora watch on the HA map."""
 
     _attr_has_entity_name = True
-    _attr_name            = None  # device name is the entity name
+    _attr_name = None  # device name is the entity name
 
     def __init__(
         self,
@@ -43,7 +44,7 @@ class XploraDeviceTracker(CoordinatorEntity[XploraCoordinator], TrackerEntity):
         watch: dict[str, str],
     ) -> None:
         super().__init__(coordinator)
-        self._wuid      = watch["wuid"]
+        self._wuid = watch["wuid"]
         self._watch_name = watch["name"]
         self._attr_unique_id = f"{self._wuid}_tracker"
 

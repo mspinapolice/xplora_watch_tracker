@@ -5,15 +5,13 @@
         "title": "Xplora Watch Tracker",
         "description": "Enter your Xplora account credentials (same as goplay.xplora.com).",
         "data": {
-          "email":    "Email address",
-          "password": "Password",
-          "timezone": "Timezone (e.g. America/New_York)",
-          "language": "Language (e.g. en-US)"
+          "email": "Email address",
+          "password": "Password"
         }
       },
       "watches": {
         "title": "Name Your Watches",
-        "description": "Found {watch_count} watch(es): {watches}.\n\nSet a friendly name for each watch and choose how often to poll for updates ({min_interval}–{max_interval} seconds, default {default_interval}s).",
+        "description": "Found {watch_count} watch(es): {watches}.\n\nSet a friendly name for each watch and choose how often to poll for updates ({min_interval}-{max_interval} seconds, default {default_interval}s).",
         "data": {
           "scan_interval": "Poll interval (seconds)"
         }
@@ -21,9 +19,9 @@
     },
     "error": {
       "cannot_connect": "Unable to connect to the Xplora API. Check your internet connection.",
-      "invalid_auth":   "Invalid email or password.",
-      "no_watches":     "No watches found on this account.",
-      "unknown":        "Unexpected error. Check the HA logs for details."
+      "invalid_auth": "Invalid email or password.",
+      "no_watches": "No watches found on this account.",
+      "unknown": "Unexpected error. Check the HA logs for details."
     },
     "abort": {
       "already_configured": "This Xplora account is already configured."
@@ -33,12 +31,9 @@
     "step": {
       "init": {
         "title": "Xplora Watch Tracker Options",
-        "description": "Adjust poll interval ({min_interval}–{max_interval} seconds), watch display names, and Xplora API settings.",
+        "description": "Adjust poll interval ({min_interval}-{max_interval} seconds), watch display names, and Xplora API settings.",
         "data": {
           "scan_interval": "Poll interval (seconds)",
-          "endpoint": "API endpoint",
-          "api_key": "API key",
-          "api_secret": "API secret"
         }
       }
     },

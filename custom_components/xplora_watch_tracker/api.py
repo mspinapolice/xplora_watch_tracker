@@ -1,4 +1,5 @@
 """Xplora API client — standalone, no external library dependency."""
+
 from __future__ import annotations
 
 import hashlib
@@ -80,14 +81,14 @@ class XploraApiClient:
     ) -> None:
         if not endpoint.startswith("https://"):
             raise ValueError(f"Endpoint must use HTTPS, got: {endpoint}")
-        self._email      = email
-        self._password   = password
-        self._timezone   = timezone
-        self._language   = language
-        self._endpoint   = endpoint
-        self._api_key    = api_key
+        self._email = email
+        self._password = password
+        self._timezone = timezone
+        self._language = language
+        self._endpoint = endpoint
+        self._api_key = api_key
         self._api_secret = api_secret
-        self._session    = session
+        self._session = session
         self._own_session = session is None
 
         # Set after login
@@ -143,7 +144,10 @@ class XploraApiClient:
 
         session = await self._get_session()
         async with session.post(
-            self._endpoint, json=payload, headers=headers, timeout=aiohttp.ClientTimeout(total=15)
+            self._endpoint,
+            json=payload,
+            headers=headers,
+            timeout=aiohttp.ClientTimeout(total=15),
         ) as resp:
             resp.raise_for_status()
             return await resp.json()
@@ -157,17 +161,18 @@ class XploraApiClient:
         data = await self._post(
             _LOGIN_MUTATION,
             {
-                "emailAddress":       self._email,
+                "emailAddress": self._email,
                 "countryPhoneNumber": None,
-                "phoneNumber":        None,
-                "password":           pw_md5,
-                "userLang":           self._language,
-                "timeZone":           self._timezone,
-                "client":             "WEB",
+                "phoneNumber": None,
+                "password": pw_md5,
+                "userLang": self._language,
+                "timeZone": self._timezone,
+                "client": "WEB",
             },
             self._open_headers(),
             operation_name="signInWithEmailOrPhone",
         )
+        _LOGGER.debug("Login response: %s", data)
 
         errors = data.get("errors")
         if errors:
@@ -212,7 +217,7 @@ class XploraApiClient:
             self._bearer_headers(),
             operation_name="WatchLastLocate",
         )
-
+        _LOGGER.debug("WatchLastLocate response: %s", data)
         errors = data.get("errors")
         if errors:
             msgs = [e.get("message", "") for e in errors]
