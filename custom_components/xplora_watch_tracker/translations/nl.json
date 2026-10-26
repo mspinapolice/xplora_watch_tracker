@@ -17,6 +17,13 @@
         "data": {
           "scan_interval": "Polling-interval (seconden)"
         }
+      },
+      "reauth_confirm": {
+        "title": "Xplora-account opnieuw authenticeren",
+        "description": "Voer het nieuwe wachtwoord voor uw Xplora-account in.",
+        "data": {
+          "password": "Wachtwoord"
+        }
       }
     },
     "error": {
@@ -26,7 +33,9 @@
       "unknown":        "Onverwachte fout. Raadpleeg de HA-logboeken voor details."
     },
     "abort": {
-      "already_configured": "Dit Xplora-account is al geconfigureerd."
+      "already_configured": "Dit Xplora-account is al geconfigureerd.",
+      "reauth_successful": "Xplora-account opnieuw geauthenticeerd.",
+      "reauth_entry_not_found": "De Xplora-accountvermelding is niet gevonden."
     }
   },
   "options": {

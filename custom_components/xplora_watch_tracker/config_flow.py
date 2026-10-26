@@ -83,6 +83,9 @@ class XploraConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
 
         if user_input is not None:
+            await self.async_set_unique_id(user_input[CONF_EMAIL].lower())
+            self._abort_if_unique_id_configured()
+
             try:
                 watches = await _validate_and_login(self.hass, user_input)
             except InvalidAuth:
@@ -155,7 +158,46 @@ class XploraConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         self, entry_data: dict[str, Any]
     ) -> FlowResult:
         """Handle re-authentication when token expires."""
-        return await self.async_step_user()
+        return await self.async_step_reauth_confirm()
+
+    async def async_step_reauth_confirm(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Ask for a new password and update the existing entry."""
+        errors: dict[str, str] = {}
+
+        if user_input is not None:
+            entry = self.hass.config_entries.async_get_entry(
+                self.context["entry_id"]
+            )
+            if entry is None:
+                return self.async_abort(reason="reauth_entry_not_found")
+
+            updated_data = {
+                **entry.data,
+                CONF_PASSWORD: user_input[CONF_PASSWORD],
+            }
+            try:
+                await _validate_and_login(self.hass, updated_data)
+            except InvalidAuth:
+                errors["base"] = "invalid_auth"
+            except CannotConnect:
+                errors["base"] = "cannot_connect"
+            except Exception:
+                _LOGGER.exception("Unexpected error during re-authentication")
+                errors["base"] = "unknown"
+            else:
+                self.hass.config_entries.async_update_entry(
+                    entry, data=updated_data
+                )
+                await self.hass.config_entries.async_reload(entry.entry_id)
+                return self.async_abort(reason="reauth_successful")
+
+        return self.async_show_form(
+            step_id="reauth_confirm",
+            data_schema=vol.Schema({vol.Required(CONF_PASSWORD): str}),
+            errors=errors,
+        )
 
     @staticmethod
     def async_get_options_flow(

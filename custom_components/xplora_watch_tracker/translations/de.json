@@ -17,6 +17,13 @@
         "data": {
           "scan_interval": "Abfrageintervall (Sekunden)"
         }
+      },
+      "reauth_confirm": {
+        "title": "Xplora-Konto erneut authentifizieren",
+        "description": "Geben Sie das neue Passwort für Ihr Xplora-Konto ein.",
+        "data": {
+          "password": "Passwort"
+        }
       }
     },
     "error": {
@@ -26,7 +33,9 @@
       "unknown":        "Unerwarteter Fehler. Weitere Informationen finden Sie in den HA-Protokollen."
     },
     "abort": {
-      "already_configured": "Dieses Xplora-Konto ist bereits konfiguriert."
+      "already_configured": "Dieses Xplora-Konto ist bereits konfiguriert.",
+      "reauth_successful": "Xplora-Konto erfolgreich erneut authentifiziert.",
+      "reauth_entry_not_found": "Der Xplora-Kontoeintrag wurde nicht gefunden."
     }
   },
   "options": {

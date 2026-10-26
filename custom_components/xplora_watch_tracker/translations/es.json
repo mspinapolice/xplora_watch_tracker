@@ -17,6 +17,13 @@
         "data": {
           "scan_interval": "Intervalo de consulta (segundos)"
         }
+      },
+      "reauth_confirm": {
+        "title": "Volver a autenticar la cuenta de Xplora",
+        "description": "Introduce la nueva contraseña de tu cuenta de Xplora.",
+        "data": {
+          "password": "Contraseña"
+        }
       }
     },
     "error": {
@@ -26,7 +33,9 @@
       "unknown":        "Error inesperado. Consulta los registros de HA para más detalles."
     },
     "abort": {
-      "already_configured": "Esta cuenta de Xplora ya está configurada."
+      "already_configured": "Esta cuenta de Xplora ya está configurada.",
+      "reauth_successful": "La cuenta de Xplora se ha autenticado correctamente.",
+      "reauth_entry_not_found": "No se encontró la entrada de la cuenta de Xplora."
     }
   },
   "options": {

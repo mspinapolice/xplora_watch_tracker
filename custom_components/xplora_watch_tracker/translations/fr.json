@@ -17,6 +17,13 @@
         "data": {
           "scan_interval": "Intervalle d'interrogation (secondes)"
         }
+      },
+      "reauth_confirm": {
+        "title": "Réauthentifier le compte Xplora",
+        "description": "Saisissez le nouveau mot de passe de votre compte Xplora.",
+        "data": {
+          "password": "Mot de passe"
+        }
       }
     },
     "error": {
@@ -26,7 +33,9 @@
       "unknown":        "Erreur inattendue. Consultez les journaux HA pour plus de détails."
     },
     "abort": {
-      "already_configured": "Ce compte Xplora est déjà configuré."
+      "already_configured": "Ce compte Xplora est déjà configuré.",
+      "reauth_successful": "Le compte Xplora a été réauthentifié avec succès.",
+      "reauth_entry_not_found": "L'entrée du compte Xplora est introuvable."
     }
   },
   "options": {

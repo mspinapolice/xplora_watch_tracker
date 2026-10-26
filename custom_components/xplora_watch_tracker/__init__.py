@@ -38,6 +38,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Xplora Watch Tracker from a config entry."""
     hass.data.setdefault(DOMAIN, {})
 
+    if entry.unique_id is None:
+        hass.config_entries.async_update_entry(
+            entry, unique_id=entry.data[CONF_EMAIL].lower()
+        )
+
     client = XploraApiClient(
         email    = entry.data[CONF_EMAIL],
         password = entry.data[CONF_PASSWORD],

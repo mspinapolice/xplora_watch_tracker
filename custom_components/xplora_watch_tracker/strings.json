@@ -17,6 +17,13 @@
         "data": {
           "scan_interval": "Poll interval (seconds)"
         }
+      },
+      "reauth_confirm": {
+        "title": "Reauthenticate Xplora Account",
+        "description": "Enter the new password for your Xplora account.",
+        "data": {
+          "password": "Password"
+        }
       }
     },
     "error": {
@@ -26,7 +33,9 @@
       "unknown":        "Unexpected error. Check the HA logs for details."
     },
     "abort": {
-      "already_configured": "This Xplora account is already configured."
+      "already_configured": "This Xplora account is already configured.",
+      "reauth_successful": "Xplora account reauthenticated successfully.",
+      "reauth_entry_not_found": "The Xplora account entry could not be found."
     }
   },
   "options": {
