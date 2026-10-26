@@ -17,17 +17,13 @@ from .const import (
     CONF_ENDPOINT,
     CONF_API_KEY,
     CONF_API_SECRET,
-    CONF_LANGUAGE,
     CONF_PASSWORD,
     CONF_SCAN_INTERVAL,
-    CONF_TIMEZONE,
     CONF_WATCHES,
     DEFAULT_API_KEY,
     DEFAULT_API_SECRET,
     DEFAULT_ENDPOINT,
-    DEFAULT_LANGUAGE,
     DEFAULT_SCAN_INTERVAL,
-    DEFAULT_TIMEZONE,
     DOMAIN,
     MAX_SCAN_INTERVAL,
     MIN_SCAN_INTERVAL,
@@ -39,8 +35,6 @@ STEP_USER_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_EMAIL):    str,
         vol.Required(CONF_PASSWORD): str,
-        vol.Optional(CONF_TIMEZONE, default=DEFAULT_TIMEZONE): str,
-        vol.Optional(CONF_LANGUAGE, default=DEFAULT_LANGUAGE): str,
     }
 )
 
@@ -52,8 +46,8 @@ async def _validate_and_login(
     client = XploraApiClient(
         email=data[CONF_EMAIL],
         password=data[CONF_PASSWORD],
-        timezone=data.get(CONF_TIMEZONE, DEFAULT_TIMEZONE),
-        language=data.get(CONF_LANGUAGE, DEFAULT_LANGUAGE),
+        timezone=hass.config.time_zone,
+        language=hass.config.language,
     )
     try:
         watches = await client.login()

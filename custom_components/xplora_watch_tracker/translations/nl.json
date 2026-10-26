@@ -6,9 +6,7 @@
         "description": "Voer uw Xplora-accountgegevens in (dezelfde als op goplay.xplora.com).",
         "data": {
           "email":    "E-mailadres",
-          "password": "Wachtwoord",
-          "timezone": "Tijdzone (bijv. America/New_York)",
-          "language": "Taal (bijv. nl-NL)"
+          "password": "Wachtwoord"
         }
       },
       "watches": {

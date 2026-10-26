@@ -6,9 +6,7 @@
         "description": "Introduce tus credenciales de cuenta Xplora (las mismas que en goplay.xplora.com).",
         "data": {
           "email":    "Correo electrónico",
-          "password": "Contraseña",
-          "timezone": "Zona horaria (p. ej. America/New_York)",
-          "language": "Idioma (p. ej. es-ES)"
+          "password": "Contraseña"
         }
       },
       "watches": {

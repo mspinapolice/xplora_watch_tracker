@@ -67,10 +67,10 @@ A Home Assistant custom integration for tracking Xplora kids smartwatches. Provi
 3. Enter your credentials:
    - **Email address** — the email on your Xplora account
    - **Password** — your Xplora account password
-   - **Timezone** — your local timezone (e.g. `America/New_York`)
-   - **Language** — your preferred language code (e.g. `en-US`)
 4. On the next screen, set a friendly name for each discovered watch and choose your poll interval
 5. Click **Submit** — the integration will appear under Devices & Services
+
+The integration uses Home Assistant's configured timezone and language automatically.
 
 ## Entities
 
