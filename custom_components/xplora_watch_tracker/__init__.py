@@ -10,10 +10,10 @@ from homeassistant.helpers import config_validation as cv
 
 from .api import XploraApiClient, XploraAuthError
 from .const import (
-    CONF_EMAIL,
-    CONF_ENDPOINT,
     CONF_API_KEY,
     CONF_API_SECRET,
+    CONF_EMAIL,
+    CONF_ENDPOINT,
     CONF_PASSWORD,
     CONF_SCAN_INTERVAL,
     CONF_WATCHES,

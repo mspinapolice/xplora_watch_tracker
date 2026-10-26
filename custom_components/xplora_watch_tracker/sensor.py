@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import Any, ClassVar
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -90,7 +90,7 @@ class XploraChargingSensor(_XploraBaseSensor):
 
     _attr_name         = "Charging"
     _attr_device_class = SensorDeviceClass.ENUM
-    _attr_options      = ["charging", "not_charging"]
+    _attr_options: ClassVar[list[str]] = ["charging", "not_charging"]
 
     def __init__(self, coordinator: XploraCoordinator, watch: dict[str, str]) -> None:
         super().__init__(coordinator, watch)

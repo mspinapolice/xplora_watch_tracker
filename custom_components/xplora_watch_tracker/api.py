@@ -152,7 +152,7 @@ class XploraApiClient:
         """Authenticate and return list of watches [{wuid, name}]."""
         # Xplora API requires MD5-hashed password client-side.  If/when they change this, we'll get a login failure and can update accordingly.
         # codeql[py/weak-sensitive-data-hashing]
-        pw_md5 = hashlib.md5(self._password.encode()).hexdigest()  # noqa: S324
+        pw_md5 = hashlib.md5(self._password.encode()).hexdigest()
 
         data = await self._post(
             _LOGIN_MUTATION,
